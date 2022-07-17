@@ -1,6 +1,6 @@
 branch-defaults:
   default:
-    environment: udagram-api-env
+    environment: udagram-api-env-2
 environment-defaults:
   udagram-api-env:
     branch: null
