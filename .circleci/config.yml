@@ -44,6 +44,8 @@ jobs:
           name: API Build
           command: |
             npm run api:build
+            npm run api:start
+
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -60,7 +62,6 @@ jobs:
           # TODO: Install, build, deploy in both apps
           command: |
             npm run deploy
-
 workflows:
   udagram:
     jobs:
