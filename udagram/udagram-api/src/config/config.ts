@@ -1,7 +1,6 @@
 import * as dotenv from "dotenv";
-dotenv.config();
-
-// ENV variables 
+dotenv.config({ path: __dirname + "/../../../.env" });
+// ENV variables
 // - AWS_ACCESS_KEY_ID
 // - AWS_SECRET_ACCESS_KEY
 // Are Also needed
