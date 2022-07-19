@@ -10,3 +10,5 @@ export AWS_REGION=us-east-1
 export AWS_PROFILE=default
 export JWT_SECRET=mysecretstring
 export URL=http://udagram-api-env.eba-thtgppxp.us-east-1.elasticbeanstalk.com
+export AWS_ACCESS_KEY_ID=AKIAVFNAK7BAK75VRSLR
+export AWS_SECRET_ACCESS_KEY=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
