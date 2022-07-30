@@ -61,7 +61,15 @@ jobs:
           command: |
             cd udagram/udagram-api
             eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME
-            echo %POSTGRES_USERNAME
+              -d POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+              -d POSTGRES_HOST=$POSTGRES_HOST
+              -d POSTGRES_DB=$POSTGRES_DB
+              -d PORT=$PORT
+              -d AWS_BUCKET=$AWS_BUCKET
+              -d AWS_REGION=$AWS_REGION
+              -d AWS_PROFILE=$AWS_PROFILE
+              -d JWT_SECRET=$JWT_SECRET
+              -d URL=$URL
       - run:
           name: Deploy API
           command: |
