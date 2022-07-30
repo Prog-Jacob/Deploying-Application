@@ -57,10 +57,19 @@ jobs:
       - aws-cli/setup
       - checkout
       - run:
-          name: Deploy App
-          # TODO: Install, build, deploy in both apps
+          name: Set Elastic Beanstalk Variables
           command: |
-            npm run deploy
+            cd udagram/udagram-api
+            eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME
+            echo %POSTGRES_USERNAME
+      - run:
+          name: Deploy API
+          command: |
+            npm run api:deploy
+      - run:
+          name: Deploy Frontend
+          command: |
+            npm run frontend:deploy
 workflows:
   udagram:
     jobs:
