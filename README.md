@@ -1,24 +1,24 @@
 # Hosting a Full-Stack Application
 
-### **You can use you own project completed in previous courses or use the provided Udagram app for completing this final project.**
+> ### Visit the following link to preview the application:
+>
+> - http://udegram.s3-website-us-east-1.amazonaws.com
 
 ---
 
-In this project you will learn how to take a newly developed Full-Stack application built for a retailer and deploy it to a cloud service provider so that it is available to customers. You will use the aws console to start and configure the services the application needs such as a database to store product information and a web server allowing the site to be discovered by potential customers. You will modify your package.json scripts and replace hard coded secrets with environment variables in your code.
+## **Infrastructure**
 
-After the initial setup, you will learn to interact with the services you started on aws and will deploy manually the application a first time to it. As you get more familiar with the services and interact with them through a CLI, you will gradually understand all the moving parts.
+![The infrastructure of the application](/docs/Deployment_Architecture.png "The infrastructure of the application")
 
-You will then register for a free account on CircleCi and connect your Github account to it. Based on the manual steps used to deploy the app, you will write a config.yml file that will make the process reproducible in CircleCi. You will set up the process to be executed automatically based when code is pushed on the main Github branch.
+We can look at the application from both ends: developer and user. **For the developer:**
 
-The project will also include writing documentation and runbooks covering the operations of the deployment process. Those runbooks will serve as a way to communicate with future developers and anybody involved in diagnosing outages of the Full-Stack application.
+- The developer commits his code to github so that CircleCI following the repository can build the application. After validating IAM permissions, the application is ready to be deployed: the server to elastic beanstalk, and the static website to AWS S3. The server is sending and receiving data from the AWS RDS, and as well, transfer requests back and forth from the AWS S3.
 
-# Udagram
+**Meanwhile for the user:**
 
-This application is provided to you as an alternative starter project if you do not wish to host your own code done in the previous courses of this nanodegree. The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
+- The user can visit the website, and the application will be served from the AWS S3. And the same connections apply in the background to serve the user with the data and pages required.
 
-
-
-### Dependencies
+## **Dependencies**
 
 ```
 - Node v14.15.1 (LTS) or more recent. While older versions can work it is advisable to keep node to latest LTS version
@@ -32,6 +32,26 @@ This application is provided to you as an alternative starter project if you do 
 - A S3 bucket for hosting uploaded pictures.
 
 ```
+
+## **Pipeline**
+
+`CircleCI` is following the repository on the master branch for any changes so once the developer commits the changes, the pipeline will start ahead with the workflow:
+
+- Build the application:
+  1. Install NodeJS and NPM.
+  1. Install the Front-End dependencies.
+  1. Install the API dependencies.
+  1. Lint the Front-End code.
+  1. Build the Front-End application.
+  1. Build the API application.
+- Hold and wait for approval before deployment.
+- Deploy the application:
+  1. Install NodeJS and NPM.
+  1. Setting up Elastic Beanstalk.
+  1. Setting up AWS cli.
+  1. Setting elastic beanstalk environment variables.
+  1. Deploy the API to Elastic Beanstalk.
+  1. Deploy the Front-End to AWS S3.
 
 ### Installation
 
@@ -66,7 +86,3 @@ The e2e tests are using Protractor and Jasmine.
 - [Angular](https://angular.io/) - Single Page Application Framework
 - [Node](https://nodejs.org) - Javascript Runtime
 - [Express](https://expressjs.com/) - Javascript API Framework
-
-## License
-
-[License](LICENSE.txt)
