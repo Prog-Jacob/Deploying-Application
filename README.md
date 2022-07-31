@@ -1,20 +1,22 @@
 # Hosting a Full-Stack Application
+
 This is a deployment project as part of the Udacity nanodegree program; advanced full-stack web development. The full-stack application was afforded by the program, and I was given the opportunity to work on it. More details are displayed in the following sections, and also, you can **visit the following link to preview the application:**
-> - http://udegram.s3-website-us-east-1.amazonaws.com
+
+> -   http://udegram.s3-website-us-east-1.amazonaws.com
 
 ---
 
 ## **Infrastructure**
 
-![The infrastructure of the application](/docs/Deployment_Architecture.png "The infrastructure of the application")
+![The infrastructure of the application](/docs/Deployment_Architecture.png 'The infrastructure of the application')
 
 We can look at the application from both ends: developer and user. **For the developer:**
 
-- The developer commits his code to github so that CircleCI following the repository can build the application. After validating IAM permissions, the application is ready to be deployed: the server to elastic beanstalk, and the static website to AWS S3. The server is sending and receiving data from the AWS RDS, and as well, transfer requests back and forth from the AWS S3.
+-   The developer commits his code to github so that CircleCI following the repository can build the application. After validating IAM permissions, the application is ready to be deployed: the server to elastic beanstalk, and the static website to AWS S3. The server is sending and receiving data from the AWS RDS, and as well, transfer requests back and forth from the AWS S3.
 
 **Meanwhile for the user:**
 
-- The user can visit the website, and the application will be served from the AWS S3. And the same connections apply in the background to serve the user with the data and pages required.
+-   The user can visit the website, and the application will be served from the AWS S3. And the same connections apply in the background to serve the user with the data and pages required.
 
 ## **Dependencies**
 
@@ -35,21 +37,21 @@ We can look at the application from both ends: developer and user. **For the dev
 
 `CircleCI` is following the repository on the master branch for any changes so once the developer commits the changes, the pipeline will start ahead with the workflow:
 
-- Build the application:
-  1. Install NodeJS and NPM.
-  1. Install the Front-End dependencies.
-  1. Install the API dependencies.
-  1. Lint the Front-End code.
-  1. Build the Front-End application.
-  1. Build the API application.
-- Hold and wait for approval before deployment.
-- Deploy the application:
-  1. Install NodeJS and NPM.
-  1. Setting up Elastic Beanstalk.
-  1. Setting up AWS cli.
-  1. Setting elastic beanstalk environment variables.
-  1. Deploy the API to Elastic Beanstalk.
-  1. Deploy the Front-End to AWS S3.
+-   Build the application:
+    1. Install NodeJS and NPM.
+    1. Install the Front-End dependencies.
+    1. Install the API dependencies.
+    1. Lint the Front-End code.
+    1. Build the Front-End application.
+    1. Build the API application.
+-   Hold and wait for approval before deployment.
+-   Deploy the application:
+    1. Install NodeJS and NPM.
+    1. Setting up Elastic Beanstalk.
+    1. Setting up AWS cli.
+    1. Setting elastic beanstalk environment variables.
+    1. Deploy the API to Elastic Beanstalk.
+    1. Deploy the Front-End to AWS S3.
 
 ### Installation
 
@@ -81,6 +83,6 @@ The e2e tests are using Protractor and Jasmine.
 
 ## Built With
 
-- [Angular](https://angular.io/) - Single Page Application Framework
-- [Node](https://nodejs.org) - Javascript Runtime
-- [Express](https://expressjs.com/) - Javascript API Framework
+-   [Angular](https://angular.io/) - Single Page Application Framework
+-   [Node](https://nodejs.org) - Javascript Runtime
+-   [Express](https://expressjs.com/) - Javascript API Framework
