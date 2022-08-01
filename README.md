@@ -1,5 +1,8 @@
 # Hosting a Full-Stack Application
-
+```
+NOTE:
+    The website is terminated since today August 1, 2022 for financial reasons. Thank you!
+```
 This is a deployment project as part of the Udacity nanodegree program; advanced full-stack web development. The full-stack application was afforded by the program, and I was given the opportunity to work on it. More details are displayed in the following sections, and also, you can **visit the following link to preview the application:**
 
 > -   http://udegram.s3-website-us-east-1.amazonaws.com
